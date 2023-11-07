@@ -230,6 +230,7 @@ class FeatureComputer:
                          idx: int,
                          save_dir: str,
                          save_obj_name: str):
+
         shutil.copytree(
             CURRENT_DIR / f"Executable",
             CURRENT_DIR / f"Executable_{idx}")
@@ -240,7 +241,8 @@ class FeatureComputer:
             print("Aligning mesh at {} ...".format(mesh.get_path()))
         mesh.align_mesh(idx, flag=True)
 
-        shutil.rmtree(CURRENT_DIR / f"Executable_{idx}", ignore_errors=False, onerror=None)
+        if os.path.exists(CURRENT_DIR / f"Executable_{idx}"):
+            shutil.rmtree(CURRENT_DIR / f"Executable_{idx}", ignore_errors=False, onerror=None)
 
 
 class DistanceComputer:
