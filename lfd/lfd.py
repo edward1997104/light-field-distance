@@ -240,6 +240,8 @@ class FeatureComputer:
             print("Aligning mesh at {} ...".format(mesh.get_path()))
         mesh.align_mesh(idx, flag=True)
 
+        shutil.rmtree(CURRENT_DIR / f"Executable_{idx}", ignore_errors=False, onerror=None)
+
 
 class DistanceComputer:
     def __init__(self, verbose: bool = 0):
