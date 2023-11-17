@@ -131,8 +131,8 @@ class MeshEncoder:
         if os.path.isdir(executable_dir) and flag:
             shutil.rmtree(executable_dir, ignore_errors=False, onerror=None)
 
-    # def __del__(self):
-    #     shutil.rmtree(self.temp_dir_path.as_posix())
+    def __del__(self):
+        shutil.rmtree(self.temp_dir_path.as_posix())
 
 
 class LightFieldDistance:
